@@ -44,62 +44,189 @@ const html = /* html */ `<!DOCTYPE html>
     .nav-links a { color: var(--muted); text-decoration: none; font-size: .9rem; transition: color .2s; }
     .nav-links a:hover { color: var(--text); }
 
-    /* ── HERO ── */
-    #hero {
+    /* ── SECTION BASE ── */
+    .section {
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      padding: 6rem 2rem 4rem;
+      padding: 8rem 2rem;
       position: relative;
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+    .section-badge {
+      font-size: .75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--accent);
+      margin-bottom: .75rem;
+    }
+    .section-placeholder {
+      color: var(--muted);
+      font-size: .85rem;
+      margin-top: 1rem;
+      border: 1px dashed rgba(255,255,255,0.1);
+      padding: .5rem 1rem;
+      border-radius: 6px;
+    }
+
+    /* ── S1: HERO ── */
+    #s1-hero-wrap {
+      height: 3500px; /* 100vh sticky + 2500px scroll room */
+    }
+    #s1-hero {
+      min-height: unset;
+      height: 100vh;
+      padding: 0;
+      overflow: hidden;
+      border-bottom: none;
+    }
+
+    /* sticky viewport that GSAP pins */
+    .hero-sticky {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       overflow: hidden;
     }
-    .hero-glow {
+
+    /* ambient radial glow */
+    .hero-bg-glow {
       position: absolute;
-      width: 600px; height: 600px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(124,92,252,.25) 0%, transparent 70%);
+      inset: 0;
       pointer-events: none;
-      top: 50%; left: 50%;
-      transform: translate(-50%, -50%);
+      background:
+        radial-gradient(ellipse 60% 55% at 50% 50%, rgba(124,92,252,.18) 0%, transparent 70%);
     }
-    .hero-tag {
-      display: inline-block;
-      padding: .35rem 1rem;
-      border: 1px solid rgba(124,92,252,.4);
-      border-radius: 999px;
-      font-size: .8rem;
-      color: var(--accent2);
-      margin-bottom: 1.5rem;
-      opacity: 0;
+
+    /* ── typewriter headline ── */
+    .hero-headline-wrap {
+      text-align: center;
+      z-index: 2;
     }
-    .hero-title {
-      font-size: clamp(2.5rem, 6vw, 5rem);
+    .hero-line1 {
+      display: block;
+      font-size: clamp(2.2rem, 5vw, 4.2rem);
       font-weight: 800;
-      line-height: 1.1;
       letter-spacing: -1.5px;
-      margin-bottom: 1.5rem;
-      opacity: 0;
+      line-height: 1.1;
+      white-space: nowrap;
+      overflow: hidden;
+      color: var(--text);
     }
-    .hero-title .gradient {
+    .hero-line2 {
+      display: block;
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 900;
+      letter-spacing: -3px;
+      line-height: 1;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+      opacity: 0;
+      transform: scale(0.7);
+      transform-origin: center;
+      margin-top: .2rem;
+    }
+
+    /* ── agent pills (phase 1 — floating) ── */
+    .hero-agents {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
+    .agent-pill {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .45rem 1rem;
+      border-radius: 999px;
+      background: rgba(19,19,26,.85);
+      border: 1px solid rgba(124,92,252,.3);
+      backdrop-filter: blur(8px);
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--text);
+      white-space: nowrap;
+      opacity: 0;
+    }
+    .agent-pill .dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    /* initial spread positions (will be overridden by JS for convergence) */
+    .agent-pill:nth-child(1) { top: 18%;  left: 6%; }
+    .agent-pill:nth-child(2) { top: 12%;  left: 38%; }
+    .agent-pill:nth-child(3) { top: 18%;  right: 6%; }
+    .agent-pill:nth-child(4) { bottom: 22%; left: 4%; }
+    .agent-pill:nth-child(5) { bottom: 18%; left: 36%; }
+    .agent-pill:nth-child(6) { bottom: 22%; right: 4%; }
+
+    /* ── Lifetime Runtime target ── */
+    .hero-runtime {
+      position: absolute;
+      bottom: 30%;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .5rem;
+      z-index: 3;
+      opacity: 0;
+    }
+    .runtime-box {
+      padding: .7rem 1.6rem;
+      border-radius: 14px;
+      background: rgba(124,92,252,.12);
+      border: 1.5px solid rgba(124,92,252,.5);
+      font-size: .9rem;
+      font-weight: 700;
+      color: var(--accent2);
+      letter-spacing: .5px;
+      box-shadow: 0 0 30px rgba(124,92,252,.2);
+    }
+    .runtime-label {
+      font-size: .7rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    /* ── final hero content (sub + buttons) ── */
+    .hero-final {
+      position: absolute;
+      bottom: 6%;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      width: 100%;
+      max-width: 640px;
+      z-index: 4;
+      opacity: 0;
     }
     .hero-sub {
-      max-width: 540px;
       color: var(--muted);
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       line-height: 1.7;
-      margin-bottom: 2.5rem;
-      opacity: 0;
+      margin-bottom: 2rem;
     }
-    .hero-cta {
-      display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
-      opacity: 0;
+    .hero-btns {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
     }
     .btn {
       padding: .8rem 2rem;
@@ -122,99 +249,6 @@ const html = /* html */ `<!DOCTYPE html>
       color: var(--text);
     }
 
-    /* ── FEATURES ── */
-    #features {
-      padding: 7rem 2rem;
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-    .section-label {
-      text-align: center;
-      color: var(--accent);
-      font-size: .8rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      margin-bottom: 1rem;
-    }
-    .section-title {
-      text-align: center;
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 800;
-      letter-spacing: -1px;
-      margin-bottom: 4rem;
-    }
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-    .card {
-      background: var(--surface);
-      border: 1px solid rgba(255,255,255,.07);
-      border-radius: 16px;
-      padding: 2rem;
-      transition: border-color .2s;
-      opacity: 0;
-      transform: translateY(40px);
-    }
-    .card:hover { border-color: rgba(124,92,252,.4); }
-    .card-icon {
-      width: 48px; height: 48px;
-      border-radius: 12px;
-      background: rgba(124,92,252,.15);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.4rem;
-      margin-bottom: 1.2rem;
-    }
-    .card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: .6rem; }
-    .card p { color: var(--muted); font-size: .9rem; line-height: 1.65; }
-
-    /* ── STATS ── */
-    #stats {
-      background: var(--surface);
-      border-top: 1px solid rgba(255,255,255,.06);
-      border-bottom: 1px solid rgba(255,255,255,.06);
-      padding: 5rem 2rem;
-    }
-    .stats-grid {
-      max-width: 900px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-      gap: 2rem;
-      text-align: center;
-    }
-    .stat-num {
-      font-size: 2.8rem;
-      font-weight: 800;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      opacity: 0;
-    }
-    .stat-label { color: var(--muted); font-size: .85rem; margin-top: .4rem; }
-
-    /* ── CTA SECTION ── */
-    #cta {
-      padding: 8rem 2rem;
-      text-align: center;
-    }
-    .cta-box {
-      max-width: 680px;
-      margin: 0 auto;
-      opacity: 0;
-      transform: translateY(30px);
-    }
-    .cta-box h2 {
-      font-size: clamp(1.8rem, 4vw, 2.8rem);
-      font-weight: 800;
-      letter-spacing: -1px;
-      margin-bottom: 1rem;
-    }
-    .cta-box p { color: var(--muted); margin-bottom: 2rem; font-size: 1rem; line-height: 1.7; }
-
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid rgba(255,255,255,.06);
@@ -235,97 +269,117 @@ const html = /* html */ `<!DOCTYPE html>
   <nav id="navbar">
     <div class="nav-logo">lifetime<span>soft</span></div>
     <ul class="nav-links">
-      <li><a href="#features">Features</a></li>
-      <li><a href="#stats">Stats</a></li>
-      <li><a href="#cta">Get Started</a></li>
+      <li><a href="#s1-hero">Hero</a></li>
+      <li><a href="#s2-problem">Problem</a></li>
+      <li><a href="#s3-turning">Turning Point</a></li>
+      <li><a href="#s4-run">Run Anywhere</a></li>
+      <li><a href="#s5-communicate">Communicate</a></li>
+      <li><a href="#s6-collaborate">Collaborate</a></li>
+      <li><a href="#s7-scale">Scale</a></li>
+      <li><a href="#s8-how">How It Works</a></li>
+      <li><a href="#s9-proof">Social Proof</a></li>
+      <li><a href="#s10-cta">Get Started</a></li>
     </ul>
   </nav>
 
-  <!-- HERO -->
-  <section id="hero">
-    <div class="hero-glow"></div>
-    <div class="hero-tag">Now in Public Beta</div>
-    <h1 class="hero-title">
-      Build smarter software<br />
-      with <span class="gradient">Lifetimesoft</span>
-    </h1>
-    <p class="hero-sub">
-      A modern platform for building, shipping, and scaling
-      applications — powered by intelligent tooling and developer-first design.
-    </p>
-    <div class="hero-cta">
-      <a href="#cta" class="btn btn-primary">Get Started</a>
-      <a href="#features" class="btn btn-outline">Learn More</a>
-    </div>
+  <!-- ── S1: HERO ── -->
+  <!-- outer wrapper gives the 2500px scroll distance for the pin -->
+  <div id="s1-hero-wrap">
+    <section id="s1-hero">
+      <div class="hero-sticky" id="hero-sticky">
+
+        <div class="hero-bg-glow"></div>
+
+        <!-- agent pills floating around -->
+        <div class="hero-agents" id="hero-agents">
+          <div class="agent-pill" id="pill-0"><span class="dot"></span>OpenAI SDK</div>
+          <div class="agent-pill" id="pill-1"><span class="dot"></span>Anthropic SDK</div>
+          <div class="agent-pill" id="pill-2"><span class="dot"></span>Gemini SDK</div>
+          <div class="agent-pill" id="pill-3"><span class="dot"></span>CrewAI</div>
+          <div class="agent-pill" id="pill-4"><span class="dot"></span>LangGraph</div>
+          <div class="agent-pill" id="pill-5"><span class="dot"></span>Your SDK</div>
+        </div>
+
+        <!-- Lifetime Runtime target box -->
+        <div class="hero-runtime" id="hero-runtime">
+          <div class="runtime-box">⬡ Lifetime Runtime</div>
+          <span class="runtime-label">Any agent. Any framework.</span>
+        </div>
+
+        <!-- typewriter headline — centered -->
+        <div class="hero-headline-wrap" id="hero-headline">
+          <span class="hero-line1" id="hero-line1"></span>
+          <span class="hero-line2" id="hero-line2">Anywhere.</span>
+        </div>
+
+        <!-- sub + buttons — revealed last -->
+        <div class="hero-final" id="hero-final">
+          <p class="hero-sub">
+            The Autonomous Agent Platform that connects every runtime,<br />
+            framework and capability.
+          </p>
+          <div class="hero-btns">
+            <a href="#s10-cta" class="btn btn-primary">Start Building</a>
+            <a href="#s8-how"  class="btn btn-outline">Explore Marketplace</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- ── S2: THE PROBLEM ── -->
+  <section id="s2-problem" class="section">
+    <p class="section-badge">Section 2 · The Problem</p>
+    <p class="section-placeholder">— empty, waiting for content —</p>
   </section>
 
-  <!-- FEATURES -->
-  <section id="features">
-    <p class="section-label">What we offer</p>
-    <h2 class="section-title">Everything you need to ship faster</h2>
-    <div class="cards">
-      <div class="card">
-        <div class="card-icon">⚡</div>
-        <h3>Edge-First Performance</h3>
-        <p>Deploy globally on Cloudflare's edge network with sub-millisecond cold starts and automatic scaling.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🤖</div>
-        <h3>AI-Powered Tooling</h3>
-        <p>Integrated AI agents that help automate repetitive tasks, review code, and accelerate development workflows.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🔐</div>
-        <h3>Identity & Access</h3>
-        <p>Built-in authentication, authorization, and identity management — zero boilerplate required.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">📦</div>
-        <h3>Managed Registry</h3>
-        <p>Publish, version, and distribute packages through a private registry designed for your organization.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">📊</div>
-        <h3>Real-Time Analytics</h3>
-        <p>Monitor performance, errors, and user behavior in real time with a unified observability dashboard.</p>
-      </div>
-      <div class="card">
-        <div class="card-icon">🔗</div>
-        <h3>CLI Integration</h3>
-        <p>A powerful CLI that integrates seamlessly into your existing workflow — from local dev to production deploy.</p>
-      </div>
-    </div>
+  <!-- ── S3: THE TURNING POINT ── -->
+  <section id="s3-turning" class="section">
+    <p class="section-badge">Section 3 · The Turning Point</p>
+    <p class="section-placeholder">— empty, waiting for content —</p>
   </section>
 
-  <!-- STATS -->
-  <section id="stats">
-    <div class="stats-grid">
-      <div>
-        <div class="stat-num" data-target="99.9">0</div>
-        <div class="stat-label">% Uptime SLA</div>
-      </div>
-      <div>
-        <div class="stat-num" data-target="200">0</div>
-        <div class="stat-label">Edge locations</div>
-      </div>
-      <div>
-        <div class="stat-num" data-target="10">0</div>
-        <div class="stat-label">ms median latency</div>
-      </div>
-      <div>
-        <div class="stat-num" data-target="50">0</div>
-        <div class="stat-label">k+ developers</div>
-      </div>
-    </div>
+  <!-- ── S4: RUN ANYWHERE ── -->
+  <section id="s4-run" class="section">
+    <p class="section-badge">Section 4 · Run Anywhere</p>
+    <p class="section-placeholder">— empty, waiting for content —</p>
   </section>
 
-  <!-- CTA -->
-  <section id="cta">
-    <div class="cta-box">
-      <h2>Ready to get started?</h2>
-      <p>Join thousands of developers building the next generation of software on Lifetimesoft.</p>
-      <a href="#" class="btn btn-primary">Create Free Account</a>
-    </div>
+  <!-- ── S5: COMMUNICATE ── -->
+  <section id="s5-communicate" class="section">
+    <p class="section-badge">Section 5 · Communicate</p>
+    <p class="section-placeholder">— empty, waiting for content —</p>
+  </section>
+
+  <!-- ── S6: COLLABORATE ── -->
+  <section id="s6-collaborate" class="section">
+    <p class="section-badge">Section 6 · Collaborate</p>
+    <p class="section-placeholder">— empty, waiting for content —</p>
+  </section>
+
+  <!-- ── S7: SCALE ── -->
+  <section id="s7-scale" class="section">
+    <p class="section-badge">Section 7 · Scale</p>
+    <p class="section-placeholder">— empty, waiting for content —</p>
+  </section>
+
+  <!-- ── S8: HOW IT WORKS ── -->
+  <section id="s8-how" class="section">
+    <p class="section-badge">Section 8 · How It Works</p>
+    <p class="section-placeholder">— empty, waiting for content —</p>
+  </section>
+
+  <!-- ── S9: SOCIAL PROOF / STATS ── -->
+  <section id="s9-proof" class="section">
+    <p class="section-badge">Section 9 · Social Proof</p>
+    <p class="section-placeholder">— empty, waiting for content —</p>
+  </section>
+
+  <!-- ── S10: CTA / WAITLIST ── -->
+  <section id="s10-cta" class="section">
+    <p class="section-badge">Section 10 · Get Started</p>
+    <p class="section-placeholder">— empty, waiting for content —</p>
   </section>
 
   <!-- FOOTER -->
@@ -341,77 +395,125 @@ const html = /* html */ `<!DOCTYPE html>
   <script>
     gsap.registerPlugin(ScrollTrigger);
 
-    // ── Navbar fade-in ──────────────────────────────────────────────
-    gsap.from('#navbar', {
-      y: -60, opacity: 0, duration: 0.8, ease: 'power3.out'
-    });
+    // ── Navbar ──────────────────────────────────────────────────────
+    gsap.from('#navbar', { y: -60, opacity: 0, duration: 0.8, ease: 'power3.out' });
 
-    // ── Hero stagger ────────────────────────────────────────────────
-    gsap.to(['.hero-tag', '.hero-title', '.hero-sub', '.hero-cta'], {
-      opacity: 1,
-      y: 0,
-      duration: 0.9,
-      stagger: 0.18,
-      ease: 'power3.out',
-      delay: 0.3,
-    });
+    // ── S1: HERO ScrollPin timeline ─────────────────────────────────
+    (function heroInit() {
 
-    // ── Feature cards (ScrollTrigger) ───────────────────────────────
-    gsap.to('.card', {
-      scrollTrigger: {
-        trigger: '#features',
-        start: 'top 75%',
-      },
-      opacity: 1,
-      y: 0,
-      duration: 0.7,
-      stagger: 0.12,
-      ease: 'power3.out',
-    });
-
-    // ── Stats counter ────────────────────────────────────────────────
-    document.querySelectorAll('.stat-num').forEach((el) => {
-      const target = parseFloat(el.dataset.target);
-      const isDecimal = String(target).includes('.');
-
+      // 1. Pin the sticky viewport for 2500px of scroll
       ScrollTrigger.create({
-        trigger: '#stats',
-        start: 'top 80%',
-        onEnter: () => {
-          gsap.to(el, { opacity: 1, duration: 0.4 });
-          gsap.to({ val: 0 }, {
-            val: target,
-            duration: 1.6,
-            ease: 'power2.out',
-            onUpdate: function () {
-              el.textContent = isDecimal
-                ? this.targets()[0].val.toFixed(1)
-                : Math.floor(this.targets()[0].val);
-            },
-            onComplete: () => { el.textContent = isDecimal ? target.toFixed(1) : target; }
-          });
-        },
-        once: true,
+        trigger: '#s1-hero-wrap',
+        start: 'top top',
+        end: '+=2500',
+        pin: '#hero-sticky',
+        anticipatePin: 1,
       });
-    });
 
-    // ── CTA box ──────────────────────────────────────────────────────
-    gsap.to('.cta-box', {
-      scrollTrigger: {
-        trigger: '#cta',
-        start: 'top 80%',
-      },
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      ease: 'power3.out',
-    });
+      // Master timeline scrubbed by scroll progress
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: '#s1-hero-wrap',
+          start: 'top top',
+          end: '+=2500',
+          scrub: 1.2,
+        },
+      });
 
-    // ── Parallax hero glow ───────────────────────────────────────────
-    document.addEventListener('mousemove', (e) => {
-      const x = (e.clientX / window.innerWidth  - 0.5) * 40;
-      const y = (e.clientY / window.innerHeight - 0.5) * 40;
-      gsap.to('.hero-glow', { x, y, duration: 1.2, ease: 'power2.out' });
+      // ── Phase 0 (0–0.08): blank screen ──────────────────────────
+      // nothing — screen starts dark
+
+      // ── Phase 1 (0.08–0.28): typewriter "Run Any AI Agent." ──────
+      const line1El = document.getElementById('hero-line1');
+      const fullText = 'Run Any AI Agent.';
+      // We reveal the text via clip-path width trick using a counter obj
+      const typer = { n: 0 };
+      tl.to(typer, {
+        n: fullText.length,
+        duration: 0.2,
+        ease: 'none',
+        onUpdate() {
+          if (line1El) line1El.textContent = fullText.slice(0, Math.round(typer.n));
+        },
+      }, 0.08);
+
+      // ── Phase 2 (0.28–0.42): "Anywhere." scales in below ─────────
+      tl.to('#hero-line2', {
+        opacity: 1,
+        scale: 1,
+        duration: 0.14,
+        ease: 'back.out(1.4)',
+      }, 0.28);
+
+      // ── Phase 3 (0.38–0.56): agent pills float in ─────────────────
+      const pills = gsap.utils.toArray('.agent-pill');
+      tl.to(pills, {
+        opacity: 1,
+        duration: 0.1,
+        stagger: 0.025,
+        ease: 'power2.out',
+      }, 0.38);
+
+      // ── Phase 4 (0.56–0.72): runtime target appears ───────────────
+      tl.to('#hero-runtime', {
+        opacity: 1,
+        duration: 0.08,
+        ease: 'power2.out',
+      }, 0.56);
+
+      // ── Phase 5 (0.62–0.82): pills converge to runtime ────────────
+      // Get pill positions relative to viewport center at runtime
+      const runtimeTarget = { x: 0, y: 0 }; // will resolve in px after DOM ready
+      pills.forEach((pill) => {
+        const el = pill as HTMLElement;
+        // Each pill flies to the center-bottom of the screen (where runtime box is)
+        tl.to(el, {
+          x: () => {
+            const pr = el.getBoundingClientRect();
+            const rt = document.getElementById('hero-runtime')!.getBoundingClientRect();
+            return rt.left + rt.width / 2 - (pr.left + pr.width / 2);
+          },
+          y: () => {
+            const pr = el.getBoundingClientRect();
+            const rt = document.getElementById('hero-runtime')!.getBoundingClientRect();
+            return rt.top + rt.height / 2 - (pr.top + pr.height / 2);
+          },
+          scale: 0.5,
+          opacity: 0,
+          duration: 0.18,
+          ease: 'power3.in',
+        }, 0.62);
+      });
+
+      // runtime box pulses as pills arrive
+      tl.to('#hero-runtime .runtime-box', {
+        boxShadow: '0 0 60px rgba(124,92,252,.7)',
+        scale: 1.08,
+        duration: 0.06,
+        yoyo: true,
+        repeat: 1,
+        ease: 'power2.inOut',
+      }, 0.78);
+
+      // ── Phase 6 (0.82–1.0): final sub + buttons reveal ───────────
+      tl.to('#hero-final', {
+        opacity: 1,
+        y: 0,
+        duration: 0.12,
+        ease: 'power3.out',
+      }, 0.84);
+
+    })();
+
+    // ── Section placeholders fade in on scroll ───────────────────────
+    gsap.utils.toArray('.section').forEach((el) => {
+      gsap.from(el as HTMLElement, {
+        scrollTrigger: { trigger: el as HTMLElement, start: 'top 80%' },
+        opacity: 0,
+        y: 30,
+        duration: 0.7,
+        ease: 'power3.out',
+      });
     });
   </script>
 </body>
