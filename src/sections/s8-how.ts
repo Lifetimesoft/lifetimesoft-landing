@@ -280,7 +280,7 @@ export const js: string = /* js */ `
       if (!screen) return;
 
       // helper: append a new line element
-      function addLine(cls: string, text: string): HTMLElement {
+      function addLine(cls, text) {
         const el = document.createElement('span');
         el.className = 'cli-out-line ' + cls;
         el.textContent = text;
@@ -289,7 +289,7 @@ export const js: string = /* js */ `
       }
 
       // helper: typewriter into a <span> then call done()
-      function typeInto(el: HTMLElement, text: string, speed: number, done: () => void) {
+      function typeInto(el, text, speed, done) {
         let i = 0;
         el.textContent = '';
         const id = setInterval(() => {
