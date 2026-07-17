@@ -1,9 +1,4 @@
-import { Hono } from 'hono'
-
-const app = new Hono()
-
-app.get('/', (c) => {
-  return c.html(/* html */ `<!DOCTYPE html>
+const html = /* html */ `<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -420,7 +415,12 @@ app.get('/', (c) => {
     });
   </script>
 </body>
-</html>`)
-})
+</html>`
 
-export default app
+export default {
+  fetch(): Response {
+    return new Response(html, {
+      headers: { 'Content-Type': 'text/html;charset=UTF-8' },
+    })
+  },
+} satisfies ExportedHandler

@@ -5,10 +5,8 @@
         "dev": "wrangler dev src/index.ts --remote",
         "deploy": "wrangler deploy --minify src/index.ts"
     },
-    "dependencies": {
-        "hono": "^4.12.30"
-    },
     "devDependencies": {
+        "@cloudflare/workers-types": "^5.20260717.1",
         "wrangler": "^4.110.0"
     }
 }
