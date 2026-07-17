@@ -128,7 +128,7 @@ ${allCss}
       <li><a href="#s5-communicate">Communicate</a></li>
       <li><a href="#s6-collaborate">Marketplace</a></li>
       <li><a href="#s7-scale">Capability</a></li>
-      <li><a href="#s8-how">How It Works</a></li>
+      <li><a href="#s8-how">CLI</a></li>
       <li><a href="#s9-proof">Social Proof</a></li>
       <li><a href="#s10-cta">Get Started</a></li>
     </ul>
