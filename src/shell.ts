@@ -126,7 +126,7 @@ ${allCss}
       <li><a href="#s3-turning">Turning Point</a></li>
       <li><a href="#s4-run">Run Anywhere</a></li>
       <li><a href="#s5-communicate">Communicate</a></li>
-      <li><a href="#s6-collaborate">Collaborate</a></li>
+      <li><a href="#s6-collaborate">Marketplace</a></li>
       <li><a href="#s7-scale">Scale</a></li>
       <li><a href="#s8-how">How It Works</a></li>
       <li><a href="#s9-proof">Social Proof</a></li>
