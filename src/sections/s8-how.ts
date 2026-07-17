@@ -16,7 +16,7 @@ export const css: string = /* css */ `
       transform: translateY(20px);
     }
     .cli-headline .hi {
-      background: linear-gradient(135deg, #22c55e, #86efac);
+      background: var(--accent);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -45,7 +45,7 @@ export const css: string = /* css */ `
     /* ── LEFT: terminal window ── */
     .cli-terminal {
       border-radius: 16px;
-      background: #0d0d12;
+      background: #ffffff;
       border: 1px solid rgba(255,255,255,.09);
       box-shadow: 0 24px 64px rgba(0,0,0,.6);
       overflow: hidden;
@@ -62,9 +62,9 @@ export const css: string = /* css */ `
       border-bottom: 1px solid rgba(255,255,255,.06);
     }
     .cli-dot { width:10px;height:10px;border-radius:50%; }
-    .cli-dot:nth-child(1){background:#ff5f57;}
-    .cli-dot:nth-child(2){background:#febc2e;}
-    .cli-dot:nth-child(3){background:#28c840;}
+    .cli-dot:nth-child(1),
+    .cli-dot:nth-child(2),
+    .cli-dot:nth-child(3){background:var(--accent);}
     .cli-title {
       margin-left:.5rem;
       font-size:.72rem;
@@ -80,12 +80,12 @@ export const css: string = /* css */ `
       line-height: 1.8;
       min-height: 300px;
     }
-    .cli-prompt { color: #22c55e; }
-    .cli-cmd    { color: #e2e2f0; }
+    .cli-prompt { color: var(--accent); }
+    .cli-cmd    { color: var(--text); }
     .cli-cursor {
       display: inline-block;
       width: 8px; height: 1em;
-      background: #e2e2f0;
+      background: var(--text);
       vertical-align: text-bottom;
       animation: blink .9s step-end infinite;
     }
@@ -96,10 +96,10 @@ export const css: string = /* css */ `
       opacity: 0;
       transform: translateX(-6px);
     }
-    .cli-out-line.ok    { color: #22c55e; }
+    .cli-out-line.ok    { color: var(--accent); }
     .cli-out-line.dim   { color: var(--muted); }
-    .cli-out-line.info  { color: #60a5fa; }
-    .cli-out-line.warn  { color: #fbbf24; }
+    .cli-out-line.info  { color: var(--accent); }
+    .cli-out-line.warn  { color: var(--accent); }
 
     /* ── RIGHT: deploy visualisation ── */
     .cli-deploy {
@@ -131,8 +131,8 @@ export const css: string = /* css */ `
       transition: border-color .3s;
     }
     .cli-env-card.live {
-      border-color: rgba(34,197,94,.45);
-      box-shadow: 0 0 20px rgba(34,197,94,.12);
+      border-color: rgba(91,95,239,.45);
+      box-shadow: none;
     }
     .cli-env-icon {
       font-size: 1.6rem;
@@ -163,8 +163,8 @@ export const css: string = /* css */ `
       white-space: nowrap;
     }
     .cli-env-card.live .cli-status {
-      background: rgba(34,197,94,.15);
-      color: #86efac;
+      background: rgba(91,95,239,.15);
+      color: var(--accent);
     }
 
     /* deploy beam SVG */
@@ -176,7 +176,7 @@ export const css: string = /* css */ `
       transition: opacity .3s;
     }
     .cli-beam-path {
-      stroke: rgba(34,197,94,.5);
+      stroke: rgba(91,95,239,.5);
       stroke-width: 1.5;
       stroke-dasharray: 6 4;
       fill: none;

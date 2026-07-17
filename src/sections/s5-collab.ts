@@ -1,6 +1,6 @@
 export const css: string = /* css */ `
     /* ── S5: AGENT COLLABORATION ── */
-    #s5-communicate {
+    #s5-collab {
       overflow: hidden;
       padding: 7rem 2rem 6rem;
     }
@@ -97,21 +97,21 @@ export const css: string = /* css */ `
       white-space: nowrap;
       position: relative;
     }
-    .cf-bubble.user   { border-color: rgba(34,197,94,.5);  color: #86efac; }
+    .cf-bubble.user   { border-color: rgba(91,95,239,.5);  color: var(--accent); }
     .cf-bubble.agentA { border-color: rgba(124,92,252,.6); color: var(--accent2); }
-    .cf-bubble.agentB { border-color: rgba(192,132,252,.5);color: var(--accent2); }
-    .cf-bubble.agentC { border-color: rgba(139,92,246,.5); color: #c4b5fd; }
-    .cf-bubble.agentD { border-color: rgba(99,102,241,.5); color: #a5b4fc; }
-    .cf-bubble.result { border-color: rgba(34,197,94,.6);  color: #86efac; background: rgba(34,197,94,.07); }
+    .cf-bubble.agentB { border-color: rgba(91,95,239,.5);color: var(--accent2); }
+    .cf-bubble.agentC { border-color: rgba(91,95,239,.5); color: var(--accent); }
+    .cf-bubble.agentD { border-color: rgba(91,95,239,.5); color: var(--accent); }
+    .cf-bubble.result { border-color: rgba(91,95,239,.6);  color: var(--accent); background: rgba(91,95,239,.07); }
 
     .cf-dot {
       width: 8px; height: 8px;
       border-radius: 50%;
       flex-shrink: 0;
     }
-    .cf-dot.green  { background: #22c55e; }
+    .cf-dot.green  { background: var(--accent); }
     .cf-dot.purple { background: var(--accent); }
-    .cf-dot.indigo { background: #818cf8; }
+    .cf-dot.indigo { background: var(--accent); }
 
     /* message label below bubble */
     .cf-msg {
@@ -171,7 +171,7 @@ export const css: string = /* css */ `
     }
     .net-pkt {
       r: 4;
-      fill: #a78bfa;
+      fill: var(--accent);
       opacity: 0;
     }
 
@@ -209,7 +209,7 @@ export const css: string = /* css */ `
 
 export const html: string = /* html */ `
   <!-- ── S5: AGENT COLLABORATION ── -->
-  <section id="s5-communicate" class="section">
+  <section id="s5-collab" class="section">
 
     <h2 class="collab-headline" id="collab-headline">
       Autonomous<br/><span class="hi">Multi-Agent Collaboration</span>
@@ -326,7 +326,7 @@ export const html: string = /* html */ `
 export const js: string = /* js */ `
     // ── S5: AGENT COLLABORATION ──────────────────────────────────────
     (function collabInit() {
-      const st = { trigger: '#s5-communicate', start: 'top 72%' };
+      const st = { trigger: '#s5-collab', start: 'top 72%' };
 
       // headline + sub
       gsap.to('#collab-headline', { scrollTrigger: st, opacity:1, y:0, duration:0.8, ease:'power3.out' });
@@ -417,7 +417,7 @@ export const js: string = /* js */ `
           v:1, duration:0.9, ease:'power1.inOut',
           delay,
           repeat:-1, repeatDelay:1.2,
-          scrollTrigger:{ trigger:'#s5-communicate', start:'top 60%' },
+          scrollTrigger:{ trigger:'#s5-collab', start:'top 60%' },
           onUpdate() {
             const p = t.v;
             circle.setAttribute('cx', String(x1 + (x2-x1)*p));

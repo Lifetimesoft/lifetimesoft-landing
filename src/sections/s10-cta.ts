@@ -9,7 +9,7 @@ export const css: string = /* css */ `
         radial-gradient(ellipse 55% 45% at 50% 52%, rgba(124,92,252,.22), transparent 65%),
         linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px),
         linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px),
-        #050507;
+        #ffffff;
       background-size: auto, 48px 48px, 48px 48px, auto;
     }
 
@@ -47,7 +47,7 @@ export const css: string = /* css */ `
     }
 
     .cta-network-line.green {
-      stroke: rgba(34,197,94,.28);
+      stroke: rgba(91,95,239,.28);
       animation-duration: 3.4s;
     }
 
@@ -60,7 +60,7 @@ export const css: string = /* css */ `
       width: 14px;
       height: 14px;
       border-radius: 50%;
-      background: #0d0d12;
+      background: #ffffff;
       border: 1px solid rgba(255,255,255,.24);
       box-shadow:
         0 0 0 5px rgba(124,92,252,.08),
@@ -71,8 +71,8 @@ export const css: string = /* css */ `
 
     .cta-node.green {
       box-shadow:
-        0 0 0 5px rgba(34,197,94,.08),
-        0 0 22px rgba(34,197,94,.28);
+        0 0 0 5px rgba(91,95,239,.08),
+        0 0 22px rgba(91,95,239,.28);
     }
 
     .cta-node:nth-of-type(2) { animation-delay: .4s; }
@@ -91,8 +91,8 @@ export const css: string = /* css */ `
       width: 34px;
       height: 34px;
       border-radius: 10px;
-      border: 1px solid rgba(192,132,252,.55);
-      background: rgba(19,19,26,.82);
+      border: 1px solid rgba(91,95,239,.55);
+      background: #ffffff;
       box-shadow: 0 0 28px rgba(124,92,252,.34);
       backdrop-filter: blur(8px);
       transform: translate(-50%, -50%);
@@ -104,7 +104,7 @@ export const css: string = /* css */ `
       inset: 9px;
       border-radius: 50%;
       background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 18px rgba(192,132,252,.65);
+      box-shadow: none;
     }
 
     .cta-agent::after {
@@ -114,7 +114,7 @@ export const css: string = /* css */ `
       top: 50%;
       width: 64px;
       height: 1px;
-      background: linear-gradient(90deg, rgba(192,132,252,.8), transparent);
+      background: linear-gradient(90deg, rgba(91,95,239,.8), transparent);
       transform: translateY(-50%);
       opacity: .85;
     }
@@ -128,12 +128,12 @@ export const css: string = /* css */ `
       offset-path: path("M 1180 610 C 970 390, 770 540, 610 330 S 300 170, 130 340");
       animation: ctaAgentMove 10.5s linear infinite reverse;
       border-color: rgba(74,222,128,.5);
-      box-shadow: 0 0 26px rgba(34,197,94,.24);
+      box-shadow: none;
     }
 
     .cta-agent.a2::before {
-      background: linear-gradient(135deg, #22c55e, #86efac);
-      box-shadow: 0 0 18px rgba(34,197,94,.5);
+      background: var(--accent);
+      box-shadow: none;
     }
 
     @keyframes ctaAgentMove {
@@ -173,7 +173,7 @@ export const css: string = /* css */ `
 
     .cta-title .hi {
       display: inline-block;
-      background: linear-gradient(135deg, var(--text), var(--accent2) 45%, #86efac);
+      background: var(--accent);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -238,8 +238,8 @@ export const css: string = /* css */ `
       width: 10px;
       height: 10px;
       border-radius: 50%;
-      background: #22c55e;
-      box-shadow: 0 0 16px rgba(34,197,94,.7);
+      background: var(--accent);
+      box-shadow: none;
       animation: ctaRuntimePulse 1.7s ease-in-out infinite;
     }
 
@@ -309,7 +309,7 @@ export const html: string = /* html */ `
         <span>Scale infinitely.</span>
       </p>
       <div class="cta-actions" id="cta-actions">
-        <a href="#" class="btn btn-primary">Get Started</a>
+        <a href="#s8-how" class="btn btn-primary">Get Started</a>
       </div>
     </div>
 

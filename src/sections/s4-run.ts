@@ -65,7 +65,7 @@ export const css: string = /* css */ `
       transform: translate(-50%, -50%);
       width: 18px; height: 18px;
       border-radius: 50%;
-      background: radial-gradient(circle, #a78bfa, #7c5cfc);
+      background: var(--accent);
       box-shadow: 0 0 14px 4px rgba(124,92,252,.6);
       z-index: 5;
       opacity: 0;

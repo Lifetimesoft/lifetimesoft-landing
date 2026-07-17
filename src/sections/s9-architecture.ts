@@ -3,7 +3,7 @@ export const css: string = /* css */ `
     #s9-arch-wrap {
       height: 5600px; /* pin + scroll room for 7 layers */
     }
-    #s9-proof {
+    #s9-architecture {
       min-height: unset;
       height: 100vh;
       padding: 0;
@@ -193,7 +193,7 @@ export const css: string = /* css */ `
       top: 50%;
       transform: translateY(-50%);
       width: 240px;
-      background: rgba(13,13,18,.95);
+      background: #ffffff;
       border: 1px solid rgba(124,92,252,.35);
       border-radius: 12px;
       padding: .9rem 1rem;
@@ -256,7 +256,7 @@ export const css: string = /* css */ `
 export const html: string = /* html */ `
   <!-- ── S9: ARCHITECTURE ── -->
   <div id="s9-arch-wrap">
-    <section id="s9-proof">
+    <section id="s9-architecture">
       <div class="arch-sticky" id="arch-sticky">
 
         <div class="arch-bg"></div>

@@ -3,7 +3,7 @@ export const css: string = /* css */ `
     #s6-marketplace-wrap {
       height: 4200px; /* pin height = 100vh + scroll room */
     }
-    #s6-collaborate {
+    #s6-marketplace {
       min-height: unset;
       height: 100vh;
       padding: 0;
@@ -87,11 +87,15 @@ export const css: string = /* css */ `
       box-shadow: 0 8px 32px rgba(0,0,0,.5);
     }
     /* card colour themes */
-    .mkt-card:nth-child(1) { background: linear-gradient(135deg,#2d1b69,#4f2fcc); border:1px solid rgba(124,92,252,.4); }
-    .mkt-card:nth-child(2) { background: linear-gradient(135deg,#1a2b4a,#1e4080); border:1px solid rgba(59,130,246,.4); }
-    .mkt-card:nth-child(3) { background: linear-gradient(135deg,#14322a,#155e42); border:1px solid rgba(34,197,94,.4); }
-    .mkt-card:nth-child(4) { background: linear-gradient(135deg,#3b1f1f,#6b2020); border:1px solid rgba(239,68,68,.4); }
-    .mkt-card:nth-child(5) { background: linear-gradient(135deg,#2a1a3e,#6d28d9); border:1px solid rgba(167,139,250,.4); }
+    .mkt-card:nth-child(1),
+    .mkt-card:nth-child(2),
+    .mkt-card:nth-child(3),
+    .mkt-card:nth-child(4),
+    .mkt-card:nth-child(5) {
+      background: #ffffff;
+      border: 1px solid var(--line-strong);
+      border-left: 4px solid var(--accent);
+    }
 
     .mkt-card-icon {
       font-size: 2rem;
@@ -105,7 +109,7 @@ export const css: string = /* css */ `
     .mkt-card-title {
       font-size: 1rem;
       font-weight: 700;
-      color: #fff;
+      color: var(--text);
       letter-spacing: -.3px;
     }
     .mkt-card-count {
@@ -157,7 +161,7 @@ export const css: string = /* css */ `
 export const html: string = /* html */ `
   <!-- ── S6: MARKETPLACE ── -->
   <div id="s6-marketplace-wrap">
-    <section id="s6-collaborate">
+    <section id="s6-marketplace">
       <div class="mkt-sticky" id="mkt-sticky">
 
         <div class="mkt-bg-glow"></div>

@@ -1,6 +1,6 @@
 export const css: string = /* css */ `
     /* ── S3: INTRODUCING RUNTIME ── */
-    #s3-turning {
+    #s3-runtime {
       min-height: 100vh;
       overflow: hidden;
       padding: 7rem 2rem;
@@ -31,7 +31,7 @@ export const css: string = /* css */ `
     .intro-runtime-orb {
       width: 120px; height: 120px;
       border-radius: 50%;
-      background: radial-gradient(circle at 35% 35%, #a78bfa, #7c5cfc 55%, #4f2fcc);
+      background: #ffffff;
       box-shadow: 0 0 0 0 rgba(124,92,252,.5);
       display: flex; align-items: center; justify-content: center;
       font-size: 2.4rem;
@@ -61,7 +61,7 @@ export const css: string = /* css */ `
       z-index: 2;
     }
     .intro-beam {
-      stroke: #22c55e;
+      stroke: var(--accent);
       stroke-width: 1.8;
       stroke-dasharray: 600;
       stroke-dashoffset: 600;
@@ -71,7 +71,7 @@ export const css: string = /* css */ `
     /* animated dash travel along beam */
     .intro-packet {
       r: 3.5;
-      fill: #4ade80;
+      fill: var(--accent);
       opacity: 0;
     }
 
@@ -95,13 +95,13 @@ export const css: string = /* css */ `
       width: 54px; height: 54px;
       border-radius: 14px;
       background: var(--surface);
-      border: 1px solid rgba(34,197,94,.25);
+      border: 1px solid rgba(91,95,239,.25);
       display: flex; align-items: center; justify-content: center;
       font-size: 1.3rem;
     }
     .intro-node-box.connected {
-      border-color: rgba(34,197,94,.7);
-      box-shadow: 0 0 16px rgba(34,197,94,.25);
+      border-color: rgba(91,95,239,.7);
+      box-shadow: none;
     }
     .intro-node-lbl {
       font-size: .7rem;
@@ -123,7 +123,7 @@ export const css: string = /* css */ `
       transform: translateY(20px);
     }
     .intro-headline .green {
-      background: linear-gradient(135deg, #22c55e, #86efac);
+      background: var(--accent);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -141,8 +141,8 @@ export const css: string = /* css */ `
     .intro-env {
       padding: .35rem 1rem;
       border-radius: 999px;
-      border: 1px solid rgba(34,197,94,.35);
-      color: rgba(34,197,94,.85);
+      border: 1px solid rgba(91,95,239,.35);
+      color: rgba(91,95,239,.85);
       font-size: .8rem;
       font-weight: 600;
       opacity: 0;
@@ -152,7 +152,7 @@ export const css: string = /* css */ `
 
 export const html: string = /* html */ `
   <!-- ── S3: INTRODUCING RUNTIME ── -->
-  <section id="s3-turning" class="section">
+  <section id="s3-runtime" class="section">
 
     <div class="intro-stage" id="intro-stage">
 
@@ -237,7 +237,7 @@ export const html: string = /* html */ `
 export const js: string = /* js */ `
     // ── S3: INTRODUCING RUNTIME ──────────────────────────────────────
     (function introInit() {
-      const st = { trigger: '#s3-turning', start: 'top 70%' };
+      const st = { trigger: '#s3-runtime', start: 'top 70%' };
 
       // 1. Runtime orb scales in from centre
       gsap.to('#intro-runtime', {

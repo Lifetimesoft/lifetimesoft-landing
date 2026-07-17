@@ -77,7 +77,7 @@ export const css: string = /* css */ `
       gap: .5rem;
       padding: .45rem 1rem;
       border-radius: 999px;
-      background: rgba(19,19,26,.85);
+      background: rgba(255,255,255,.92);
       border: 1px solid rgba(124,92,252,.3);
       backdrop-filter: blur(8px);
       font-size: .82rem;
@@ -196,7 +196,7 @@ export const html: string = /* html */ `
           </p>
           <div class="hero-btns">
             <a href="#s10-cta" class="btn btn-primary">Start Building</a>
-            <a href="#s8-how"  class="btn btn-outline">Explore Marketplace</a>
+            <a href="#s6-marketplace" class="btn btn-outline">Explore Marketplace</a>
           </div>
         </div>
 
