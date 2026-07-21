@@ -367,7 +367,7 @@ ${allHtml}
     if (footer) {
       ScrollTrigger.create({
         trigger: '#s2-problem',
-        start: 'top bottom',
+        start: 'top top',
         end: 'max',
         onEnter: () => footer.classList.add('is-visible'),
         onEnterBack: () => footer.classList.add('is-visible'),

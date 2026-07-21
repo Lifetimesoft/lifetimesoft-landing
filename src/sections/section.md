@@ -22,6 +22,11 @@ Typography:
 - Heading/body font: Inter.
 - Code/terminal font: JetBrains Mono.
 
+Global navigation:
+- Do not use a top navbar.
+- Show a simple fixed footer link bar from Section 2 onward.
+- Footer links should mirror the main links from `github/lifetimesoft-web`: App, Docs, CLI, Registry, YouTube, Facebook, TikTok, X, Privacy, and Contact.
+
 ## Section Map
 
 | Section | File | Main anchor | Nav label | Purpose |

@@ -36,6 +36,7 @@ export const css: string = /* css */ `
     .hero-headline-wrap {
       text-align: center;
       z-index: 2;
+      transform: translateY(-11vh);
     }
     .hero-line1 {
       display: block;
@@ -103,7 +104,7 @@ export const css: string = /* css */ `
     /* ── Lifetime Runtime target ── */
     .hero-runtime {
       position: absolute;
-      bottom: 30%;
+      bottom: 42%;
       left: 50%;
       transform: translateX(-50%);
       display: flex;
@@ -134,7 +135,7 @@ export const css: string = /* css */ `
     /* ── final hero content (sub + buttons) ── */
     .hero-final {
       position: absolute;
-      bottom: 6%;
+      bottom: 18%;
       left: 50%;
       transform: translateX(-50%);
       text-align: center;
@@ -154,6 +155,16 @@ export const css: string = /* css */ `
       gap: 1rem;
       justify-content: center;
       flex-wrap: wrap;
+    }
+    .hero-btns .btn {
+      min-width: 180px;
+      min-height: 52px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1.7rem;
+      font-size: .95rem;
+      line-height: 1;
     }
 `
 
@@ -195,8 +206,8 @@ export const html: string = /* html */ `
             framework and capability.
           </p>
           <div class="hero-btns">
-            <a href="#s10-cta" class="btn btn-primary">Start Building</a>
-            <a href="#s6-marketplace" class="btn btn-outline">Explore Marketplace</a>
+            <a href="https://app.lifetimesoft.com/" class="btn btn-primary">Start Building</a>
+            <a href="https://marketplace.lifetimesoft.com/" class="btn btn-outline">Explore Marketplace</a>
           </div>
         </div>
 
