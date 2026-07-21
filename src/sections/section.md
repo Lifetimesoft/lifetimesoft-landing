@@ -14,21 +14,13 @@ Visual style:
 - Background: `#ffffff` or `#fafafa`.
 - Text: `#111111`.
 - Muted text: neutral gray.
-- Accent: one primary color only, currently purple-blue `#5b5fef`.
+- Accent: one primary color only, Lifetime Soft green `#15803d`.
 - Avoid multi-color gradients as the dominant visual language.
 - Prefer thin lines, outlined cards, clean nodes, and SVG paths over heavy glow.
 
 Typography:
 - Heading/body font: Inter.
 - Code/terminal font: JetBrains Mono.
-
-Global platform UI:
-- A Floating Network Bar appears after the Hero section.
-- It stays near the top while the user scrolls through the rest of the page.
-- It shows live runtime status, platform stats, and a small SVG network map.
-- Runtime/status copy and counters change by section so the platform feels alive.
-- Counters should morph numerically instead of simply fading.
-- Network edges should activate through line draw / dash flow states.
 
 ## Section Map
 

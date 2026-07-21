@@ -47,7 +47,7 @@ export const css: string = /* css */ `
     }
 
     .cta-network-line.green {
-      stroke: rgba(91,95,239,.28);
+      stroke: rgba(21,128,61,.28);
       animation-duration: 3.4s;
     }
 
@@ -71,8 +71,8 @@ export const css: string = /* css */ `
 
     .cta-node.green {
       box-shadow:
-        0 0 0 5px rgba(91,95,239,.08),
-        0 0 22px rgba(91,95,239,.28);
+        0 0 0 5px rgba(21,128,61,.08),
+        0 0 22px rgba(21,128,61,.28);
     }
 
     .cta-node:nth-of-type(2) { animation-delay: .4s; }
@@ -91,7 +91,7 @@ export const css: string = /* css */ `
       width: 34px;
       height: 34px;
       border-radius: 10px;
-      border: 1px solid rgba(91,95,239,.55);
+      border: 1px solid rgba(21,128,61,.55);
       background: #ffffff;
       box-shadow: 0 0 28px rgba(124,92,252,.34);
       backdrop-filter: blur(8px);
@@ -114,7 +114,7 @@ export const css: string = /* css */ `
       top: 50%;
       width: 64px;
       height: 1px;
-      background: linear-gradient(90deg, rgba(91,95,239,.8), transparent);
+      background: linear-gradient(90deg, rgba(21,128,61,.8), transparent);
       transform: translateY(-50%);
       opacity: .85;
     }

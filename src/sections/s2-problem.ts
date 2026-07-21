@@ -55,11 +55,11 @@ export const css: string = /* css */ `
       position: absolute;
       inset: -5px;
       border-radius: 22px;
-      border: 1.5px solid rgba(91, 95, 239, 0);
+      border: 1.5px solid rgba(21, 128, 61, 0);
       transition: border-color .3s;
     }
     .prob-node.active .prob-node-icon::after {
-      border-color: rgba(91, 95, 239, .5);
+      border-color: rgba(21, 128, 61, .5);
       animation: redPulse 1.8s ease-in-out infinite;
     }
     @keyframes redPulse {
@@ -83,7 +83,7 @@ export const css: string = /* css */ `
       pointer-events: none;
     }
     .prob-line {
-      stroke: rgba(91, 95, 239, .55);
+      stroke: rgba(21, 128, 61, .55);
       stroke-width: 1.5;
       stroke-dasharray: 6 5;
       fill: none;
@@ -120,8 +120,8 @@ export const css: string = /* css */ `
     .prob-tag {
       padding: .35rem .9rem;
       border-radius: 999px;
-      border: 1px solid rgba(91, 95, 239, .3);
-      color: rgba(91, 95, 239, .8);
+      border: 1px solid rgba(21, 128, 61, .3);
+      color: rgba(21, 128, 61, .8);
       font-size: .78rem;
       font-weight: 600;
     }

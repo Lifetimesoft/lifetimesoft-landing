@@ -95,12 +95,12 @@ export const css: string = /* css */ `
       width: 54px; height: 54px;
       border-radius: 14px;
       background: var(--surface);
-      border: 1px solid rgba(91,95,239,.25);
+      border: 1px solid rgba(21,128,61,.25);
       display: flex; align-items: center; justify-content: center;
       font-size: 1.3rem;
     }
     .intro-node-box.connected {
-      border-color: rgba(91,95,239,.7);
+      border-color: rgba(21,128,61,.7);
       box-shadow: none;
     }
     .intro-node-lbl {
@@ -141,8 +141,8 @@ export const css: string = /* css */ `
     .intro-env {
       padding: .35rem 1rem;
       border-radius: 999px;
-      border: 1px solid rgba(91,95,239,.35);
-      color: rgba(91,95,239,.85);
+      border: 1px solid rgba(21,128,61,.35);
+      color: rgba(21,128,61,.85);
       font-size: .8rem;
       font-weight: 600;
       opacity: 0;

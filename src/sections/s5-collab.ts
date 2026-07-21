@@ -97,12 +97,12 @@ export const css: string = /* css */ `
       white-space: nowrap;
       position: relative;
     }
-    .cf-bubble.user   { border-color: rgba(91,95,239,.5);  color: var(--accent); }
+    .cf-bubble.user   { border-color: rgba(21,128,61,.5);  color: var(--accent); }
     .cf-bubble.agentA { border-color: rgba(124,92,252,.6); color: var(--accent2); }
-    .cf-bubble.agentB { border-color: rgba(91,95,239,.5);color: var(--accent2); }
-    .cf-bubble.agentC { border-color: rgba(91,95,239,.5); color: var(--accent); }
-    .cf-bubble.agentD { border-color: rgba(91,95,239,.5); color: var(--accent); }
-    .cf-bubble.result { border-color: rgba(91,95,239,.6);  color: var(--accent); background: rgba(91,95,239,.07); }
+    .cf-bubble.agentB { border-color: rgba(21,128,61,.5);color: var(--accent2); }
+    .cf-bubble.agentC { border-color: rgba(21,128,61,.5); color: var(--accent); }
+    .cf-bubble.agentD { border-color: rgba(21,128,61,.5); color: var(--accent); }
+    .cf-bubble.result { border-color: rgba(21,128,61,.6);  color: var(--accent); background: rgba(21,128,61,.07); }
 
     .cf-dot {
       width: 8px; height: 8px;

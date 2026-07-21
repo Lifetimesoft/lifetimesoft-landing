@@ -89,9 +89,9 @@ export const css: string = /* css */ `
       transition: background .2s;
     }
     .cap-install-btn.done {
-      border-color: rgba(91,95,239,.5);
+      border-color: rgba(21,128,61,.5);
       color: var(--accent);
-      background: rgba(91,95,239,.08);
+      background: rgba(21,128,61,.08);
     }
     /* connector line from row to agent */
     .cap-install-line {

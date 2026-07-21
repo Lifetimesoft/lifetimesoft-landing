@@ -131,7 +131,7 @@ export const css: string = /* css */ `
       transition: border-color .3s;
     }
     .cli-env-card.live {
-      border-color: rgba(91,95,239,.45);
+      border-color: rgba(21,128,61,.45);
       box-shadow: none;
     }
     .cli-env-icon {
@@ -163,7 +163,7 @@ export const css: string = /* css */ `
       white-space: nowrap;
     }
     .cli-env-card.live .cli-status {
-      background: rgba(91,95,239,.15);
+      background: rgba(21,128,61,.15);
       color: var(--accent);
     }
 
@@ -176,7 +176,7 @@ export const css: string = /* css */ `
       transition: opacity .3s;
     }
     .cli-beam-path {
-      stroke: rgba(91,95,239,.5);
+      stroke: rgba(21,128,61,.5);
       stroke-width: 1.5;
       stroke-dasharray: 6 4;
       fill: none;
